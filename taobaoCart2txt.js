@@ -16,7 +16,7 @@ var loadJS = function(url, callback) {
 (function(console){
 console.save = function(data, filename){
     if(!data) {
-        console.error('Ã»ÓĞÊı¾İ¡£')
+        console.error('æ²¡æœ‰æ•°æ®ã€‚')
         return;
     }
     if(!filename) filename = 'console.json'
@@ -35,9 +35,9 @@ console.save = function(data, filename){
 })(console);
 loadJS('https://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', function() {
     if (typeof jQuery == 'undefined') {
-        console.log('³ö´íÁËÇ×£¬ÖØÊÔ¼¸´Î´úÂë°É');
+        console.log('å‡ºé”™äº†äº²ï¼Œé‡è¯•å‡ æ¬¡ä»£ç å§');
     } else {
-        console.log('jQuery°æ±¾: ' + jQuery().jquery);
+        console.log('jQueryç‰ˆæœ¬: ' + jQuery().jquery);
     }
     mjQuery = jQuery.noConflict();
         var host = window.location.host;
@@ -57,26 +57,31 @@ loadJS('https://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', function(
                 total++;
                 total_price += parseFloat(good_price.substr(1));
                 if(total==1)
-					outputstr +=nickname+"µÄ¹ºÎï³µ\r\n\r\n";
+					outputstr +=nickname+"çš„è´­ç‰©è½¦\r\nåºå·	åç§°	ç½‘å€	å•ä»·	æ•°é‡	é‡‘é¢\r\n\r\n";
                 
                 output[i] = [href_name, href];
-                outputstr += total +'	'+ href_name +'	'+ "https:"+href +'	'+ unit_price +'	'+ quantity+"\r\n";
+                outputstr += total			+'	';
+                outputstr += href_name		+'	';
+                outputstr += "https:"+href	+'	';
+                outputstr += unit_price		+'	';
+                outputstr += quantity		+'	';
+                outputstr += good_price		+'	';
+                outputstr += "\r\n";
                 
-                console.log("µÚ"+total+"¸öÉÌÆ·");
-                console.log("Ãû³Æ:"+href_name);
-                console.log("µ¥¼Û:"+unit_price);
-                console.log("ÊıÁ¿:"+quantity);
-                console.log("ÍøÖ·:https:"+href);
-                
-                console.log("½ğ¶î:"+good_price);
+                console.log("ç¬¬"+total+"ä¸ªå•†å“");
+                console.log("åç§°:"+href_name);
+                console.log("ç½‘å€:https:"+href);
+                console.log("å•ä»·:"+unit_price);
+                console.log("æ•°é‡:"+quantity);
+                console.log("é‡‘é¢:"+good_price);
                 console.log(" ");
                 
                 
         });
         
-        outputstr += "\r\n×Ü¹²" +total+ "ÖÖÉÌÆ· ¹²¼Æ" +total_price+ "Ôª";
+        outputstr += "\r\næ€»å…±" +total+ "ç§å•†å“ æ€»è®¡" +total_price+ "å…ƒ";
         
-        console.group('%c'+nickname + ' µÄ¹ºÎï³µÖĞ¹² ' + total + 'ÖÖÉÌÆ·£¬ÒÑµ¼³öÏÂÔØÎÄ¼ş','font-size:50px;color:red;');
-        console.save(outputstr, nickname +  'µÄ¹ºÎï³µ.txt');
+        console.group('%c'+nickname + 'çš„è´­ç‰©è½¦ä¸­å…±' + total + 'ç§å•†å“æ€»è®¡'+total_price+ 'å…ƒ,å·²å¯¼å‡ºä¸‹è½½æ–‡ä»¶','font-size:50px;color:red;');
+        console.save(outputstr, nickname + 'çš„è´­ç‰©è½¦.txt');
         console.groupEnd();
 });
