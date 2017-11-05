@@ -51,18 +51,20 @@ loadJS('https://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', function(
                 var unit_price = mjQuery(this).find('div.price-content em.J_Price').text();
                 var quantity = mjQuery(this).find('input.J_ItemAmount').attr('data-now');
                 var good_price = mjQuery(this).find('div.td-inner em.number').text();
+                var note = mjQuery(this).find('p.sku-line').text();
                 var href_name = temp.text();
                 var href = temp.attr('href');
                 
                 total++;
                 total_price += parseFloat(good_price.substr(1));
                 if(total==1)
-					outputstr +=nickname+"的购物车\r\n序号	名称	网址	单价	数量	金额\r\n\r\n";
+					outputstr +=nickname+"的购物车\r\n序号	名称	网址	备注	单价	数量	金额\r\n\r\n";
                 
                 output[i] = [href_name, href];
                 outputstr += total			+'	';
                 outputstr += href_name		+'	';
                 outputstr += "https:"+href	+'	';
+                outputstr += note			+'	';
                 outputstr += unit_price		+'	';
                 outputstr += quantity		+'	';
                 outputstr += good_price		+'	';
@@ -71,6 +73,7 @@ loadJS('https://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', function(
                 console.log("第"+total+"个商品");
                 console.log("名称:"+href_name);
                 console.log("网址:https:"+href);
+                console.log("备注:"+note);
                 console.log("单价:"+unit_price);
                 console.log("数量:"+quantity);
                 console.log("金额:"+good_price);
