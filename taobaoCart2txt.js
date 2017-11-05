@@ -48,15 +48,16 @@ loadJS('https://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', function(
         var nickname = mjQuery('div.site-nav-user a:first').html();
         mjQuery('div.J_ItemBody:not(".item-invalid")').each(function(i){
                 var temp = mjQuery(this).find('div.item-info a.J_MakePoint');
-                var unit_price = mjQuery(this).find('div.price-content em.J_Price').text();
+                var unit_price = mjQuery(this).find('div.price-content em.J_Price').text().substr(1);
                 var quantity = mjQuery(this).find('input.J_ItemAmount').attr('data-now');
-                var good_price = mjQuery(this).find('div.td-inner em.number').text();
+                var good_price = mjQuery(this).find('div.td-inner em.number').text().substr(1);
                 var note = mjQuery(this).find('p.sku-line').text();
                 var href_name = temp.text();
                 var href = temp.attr('href');
                 
                 total++;
-                total_price += parseFloat(good_price.substr(1));
+                total_price += good_price*1;
+                
                 if(total==1)
 					outputstr +=nickname+"的购物车\r\n序号	名称	网址	备注	单价	数量	金额\r\n\r\n";
                 
