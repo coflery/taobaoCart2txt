@@ -56,7 +56,7 @@ loadJS('https://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', function(
                 var href = temp.attr('href');
                 
                 total++;
-                total_price += good_price*1;
+                total_price += parseFloat(good_price);
                 
                 if(total==1)
 					outputstr +=nickname+"的购物车\r\n序号	名称	网址	备注	单价	数量	金额\r\n\r\n";
