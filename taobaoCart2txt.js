@@ -79,8 +79,6 @@ loadJS('https://upcdn.b0.upaiyun.com/libs/jquery/jquery-1.8.3.min.js', function(
                 console.log("数量:"+quantity);
                 console.log("金额:"+good_price);
                 console.log(" ");
-                
-                
         });
         
         outputstr += "\r\n总共" +total+ "种商品 总计" +total_price+ "元";
